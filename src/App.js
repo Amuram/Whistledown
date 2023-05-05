@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Home from './Home';
+import CreateBlogPost from './CreateBlogPost';
+import Navbar from './Navbar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import BlogDetails from './BlogDetails';
+import NotFound from './NotFound';
 
 function App() {
+  const title = 'welcome to new block'
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <div className="content">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/create">
+            <CreateBlogPost />
+          </Route>
+          <Route path="/blogs/:id">
+            <BlogDetails />
+          </Route>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+      </div>
     </div>
+    </Router>
   );
 }
 

@@ -1,13 +1,220 @@
-body {
+:root {
+  --main-color: #fff;
+  --point-color: #fc804a;
+  --size: 5px;
+}
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+.navbar{
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  background-color: #fff;
+  border-bottom: 3px solid #f2f2f2;
+  margin: 0 auto;
+}
+.navbar h1{
+  color: #fc804a;
+}
+.navbar .links{
+  margin-right: 120px;
+}
+.navbar a {
+  text-decoration: none;
+  font-size: 20px;
+  margin-left: 20px;
+  font-weight: 800;
+}
+/* .navbar a:visited {
+  color: #fc804a;
+} */
+.navbar a:hover{
+  color: #fc804a;
+}
+.navbar a:active{
+  color: #10db3c;
+}
+.content {
+  width: 90vw;
+  margin: 10px auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blog-list{
+  max-width: 600px;
+}
+.blog-preview{
+  width: 600px;
+  padding: 20px 40px;
+  margin: 20px 0px;
+  transition: transform ease-out .2s;
+  background-color: #fff0ea;
+  color: #fc804a;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.blog-preview:hover{
+  transform: scale(1.2);
+}
+.blog-preview h2{
+  color: #fc804a;
+}
+.loader {
+  background-color: var(--main-color);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  display: flex;
+  align-items: center;
+  align-content: center; 
+  justify-content: center;  
+  z-index: 100000;
+}
+.blog-details{
+  width: 600px;
+}
+.blog-details button{
+  width: 600px;
+  margin-top: 20px;
+  padding: 10px 0;
+  font-weight: 500;
+  border-radius: 5px;
+  color: #fff;
+  border: none;
+  outline: none;
+  background-color: var(--point-color);
+  font-size: 25px;
+  cursor: pointer;
+  transition: all ease-out .2s;
+}
+.blog-details button:hover{
+  background-color: #f2f2f2;
+  border: 1px solid #fc804a;
+  color: #333;
+}
+.blog-details div{
+  margin: 40px 0;
+  font-size: 20px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.create-blog-container{
+  width: 600px;
+}
+.create-blog-container form{
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+}
+.create-blog-container input{
+  margin-top: 2px;
+  padding: 15px 10px;
+  width: 580px;
+  border-radius: 5px;
+  border: 1px solid #fc804a;
+}
+.create-blog-container input::focus{
+  outline-color: #fc804a;
+}
+.create-blog-container label{
+  margin-top: 20px;
+  margin-left: 0;
+  width: 600px;
+  font-size: 14px;
+  
+}
+.create-blog-container textarea{
+  margin-top: 2px;
+  padding: 15px 10px;
+  width: 580px;
+  border: 1px solid #fc804a;
+  border-radius: 5px;
+}
+.create-blog-container button{
+  margin-top: 20px;
+  padding: 15px 10px;
+  width: 600px;
+  font-weight: 500;
+  border-radius: 5px;
+  color: #fff;
+  /* border: 5px solid blue; */
+  border: none;
+  outline: none;
+  background-color: var(--point-color);
+}
+
+.loader__element {
+  border-radius: 100%;
+  border: var(--size) solid var(--point-color);
+  margin: calc(var(--size)*2);
+}
+
+.loader__element:nth-child(1) {
+  animation: preloader .6s ease-in-out alternate infinite;
+}
+.loader__element:nth-child(2) {
+  animation: preloader .6s ease-in-out alternate .2s infinite;
+}
+
+.loader__element:nth-child(3) {
+  animation: preloader .6s ease-in-out alternate .4s infinite;
+}
+
+@keyframes preloader {
+  100% { transform: scale(2); }
+}
+
+
+
+
+
+@media screen and (max-width: 600px) {
+  .blog-preview{
+    width: 300px;
+    padding: 20px 40px;
+    margin: 20px 0px;
+    transition: transform ease-out .2s;
+    background-color: #fff0ea;
+    color: #fc804a;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .blog-details{
+    width: 300px;
+  }
+  .blog-details button{
+    width: 300px;
+  }
+  .create-blog-container,
+  .create-blog-container label,
+  #content, #title, #author{
+    width: 300px;
+  }
+  .create-blog-container button{
+    width: 320px;
+  }
+  .navbar{
+    width: 90%;
+  }
+  .navbar a {
+    text-decoration: none;
+    font-size: 12px;
+    
+  }
+  .navbar h1{
+    font-size: 14px;
+  }
 }
